@@ -16,6 +16,9 @@ module Paperclip
     # Attachments require a content_type or file_name validator,
     # or to have explicitly opted out of them.
     class MissingRequiredValidatorError < Paperclip::Error
+      def initialize(msg = nil)
+        super(msg || "Attachments require a content_type or file_name validator or explicit opt out of content type validation")
+      end
     end
 
     # Will be thrown when ImageMagic cannot determine the uploaded file's
